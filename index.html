@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="root">
+    <div class="bar">
+        <div class="progress" :style="{width: progress + '%'}"></div>
+    </div>
+    <form action="">
+        <teo-comp v-for="(property, key) in properties"
+                  :key="key"
+                  :name="property.name"
+                  :type="property.type"
+                  :pattern="property.pattern"
+                  :check-points="checkPoints"
+                  @increase-bar="increaseBar(key)"
+                  @decrease-bar="decreaseBar(key)">
+        </teo-comp>
+    </form>
+    <button type="button" :disabled="buttonState">Accept</button>
+</div>
+<script src="vue.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
